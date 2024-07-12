@@ -14,5 +14,10 @@ namespace GHV.Data
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
+
+        internal async Task SaveChangesAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

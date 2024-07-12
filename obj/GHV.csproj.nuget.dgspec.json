@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/riwip5-017/Desktop/Hojas-de-vida/GHV.csproj": {}
+    "/home/riwip4-041/Desktop/Hojas-de-vida/GHV.csproj": {}
   },
   "projects": {
-    "/home/riwip5-017/Desktop/Hojas-de-vida/GHV.csproj": {
+    "/home/riwip4-041/Desktop/Hojas-de-vida/GHV.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/riwip5-017/Desktop/Hojas-de-vida/GHV.csproj",
+        "projectUniqueName": "/home/riwip4-041/Desktop/Hojas-de-vida/GHV.csproj",
         "projectName": "GHV",
-        "projectPath": "/home/riwip5-017/Desktop/Hojas-de-vida/GHV.csproj",
-        "packagesPath": "/home/riwip5-017/.nuget/packages/",
-        "outputPath": "/home/riwip5-017/Desktop/Hojas-de-vida/obj/",
+        "projectPath": "/home/riwip4-041/Desktop/Hojas-de-vida/GHV.csproj",
+        "packagesPath": "/home/riwip4-041/.nuget/packages/",
+        "outputPath": "/home/riwip4-041/Desktop/Hojas-de-vida/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/riwip5-017/.nuget/NuGet/NuGet.Config"
+          "/home/riwip4-041/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
