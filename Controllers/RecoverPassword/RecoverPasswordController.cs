@@ -32,7 +32,7 @@ namespace GHV.Controllers
         {
 
             
-            email = "danitorresm734@gmail.com";
+            /*email = "danitorresm734@gmail.com";*/
             if (string.IsNullOrEmpty(email))
             {
                 ViewData["Mensaje"] = "Por favor ingrese un correo electrónico válido.";

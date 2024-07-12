@@ -17,12 +17,12 @@ namespace GHV.Controllers
                 string url = "https://api.mailersend.com/v1/email";
 
                 // Token de autorización para la solicitud POST
-                string jwtToken = "mlsn.f5d7fa8ee08bbca34247ca5131c7bd825fa15d63e1e854ec7cb02d32ad150208";
+                string jwtToken = "mlsn.acea80f5ee4bbb9bdaf914ae19a1b9b9cc84097da4529a01d17816d52608e4a4";
 
                 // Crear el mensaje de correo electrónico utilizando datos del usuario
                 var emailMessage = new
                 {
-                    from = new { email = "esawe@trial-pq3enl60088l2vwr.mlsender.net" },
+                    from = new { email = "RecoverPassword@trial-v69oxl59emkg785k.mlsender.net" },
                     to = new[]
                     {
                         new { email = usuario.Email}
