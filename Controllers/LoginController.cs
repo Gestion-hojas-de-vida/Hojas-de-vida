@@ -18,10 +18,33 @@ namespace GHV.Controllers
         {
             _context = context;
         }
+        /*Direccionamiento a la vita de Login*/
         [HttpGet]
         public IActionResult Login()
         {
             return View();  
         }
+        /*------------------------------------------------*/
+        /*Verificacion de credenciales para Login*/
+        [HttpPost]
+        public IActionResult Login(string email, string contrasena)
+        {   
+            Console.WriteLine("Empieza");
+            var LoginUser =_context.Usuarios.FirstOrDefault(u => u.Email == email && u.Contrasena == contrasena);
+            if (LoginUser != null)
+            {   
+                Console.WriteLine("Iniciaste Sesion");
+                ViewBag.Nombre=LoginUser.Nombre;
+                ViewBag.SuccessMessages = "Inicio de sesión exitoso";
+                return View("Logeado", "Login");
+
+            }
+            else
+            {   Console.WriteLine("Credenciales incorrectas");
+                ViewBag.ErrorMessages = "Credenciales incorrectas";
+                return View();
+            }
+        }
+        /*--------------------------------------------------------------------------------------------------------------*/
     }
 }

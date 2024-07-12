@@ -8,7 +8,7 @@
    
     <title>Login</title>
 
-    <link rel="stylesheet" href="/wwwroot/css/style.css">
+    
 
 
 
@@ -28,16 +28,29 @@
     </nav>    
     <div class="main-container">
         <div class="form-container">
-            <p class="title">Bienvenido </p>
-            <!--Formulario Inicio de sesion-------------------------------------------------------->
-            <form class="form" id="loginForm">
-                <input type="email" class="input" placeholder="Email" name>
-                <input type="password" class="input" placeholder="Password">
-                <p class="page-link">
-                    <span class="page-link-label">Recordar mi contraseña</span>
-                </p>
-                <button class="form-btn">Iniciar Sesion</button>
-            </form>
+            <p class="title">Bienvenido, aqui puedes inicar sesion </p>
+            <!---------------------------Formulario Inicio de sesion--------------------------------------->
+                <form class="form" asp-action="Login" asp-controller="Login" method="post">
+
+                    <label for="">Ingresa:</label>
+                    <input type="email" class="input" placeholder="Email" id="Email" name="Email" required>
+                    <input type="password" class="input" placeholder="ContraseÃ±a" id="contrasena" name="contrasena" required>
+                    <p class="page-link">
+                        <span class="page-link-label">Recordar mi contraseÃ±a</span>
+                    </p>
+                    <button type="submit" class="form-btn">Iniciar Sesion</button>
+                </form>
+            <!-------------------------------------------------------------------------------------->
+
+            <!------Mensaje Error Credenciales--------------------------------------->
+                <div>                    
+                    @if (ViewBag.ErrorMessages != null)
+                        {
+                            <div class="alert alert-danger">
+                                @ViewBag.ErrorMessages
+                            </div>
+                        }
+                </div>
             <!-------------------------------------------------------------------------------------->
             <p class="sign-up-label">
                 No Tienes cuenta ?<span class="sign-up-link">Sign up</span>
