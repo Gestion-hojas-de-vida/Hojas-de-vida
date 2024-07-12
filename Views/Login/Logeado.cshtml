@@ -1,0 +1,23 @@
+
+@{
+    ViewData["Title"] = "Logeado";
+}
+
+
+<head>
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+</head>
+
+
+<body class="login" >
+    <nav class="navbar">
+    </nav>
+    <div class="main-container">
+        <div class="form-container">
+                <p class="title">Hola, @ViewBag.Nombre</p>
+            <div class="alert alert-success ">
+                @ViewBag.SuccessMessages
+            </div>
+        </div>
+    </div>
+</body>
