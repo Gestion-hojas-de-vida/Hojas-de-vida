@@ -3,6 +3,7 @@ using GHV.Models;
 using GHV.Data;
 using Microsoft.AspNetCore.Authentication;
 
+
 namespace GHV.Controllers
 {
     public class RegisterController : Controller
@@ -25,6 +26,9 @@ namespace GHV.Controllers
             {
                 try
                 {
+                    SendRegisterController EmailREgister = new SendRegisterController();
+                    EmailREgister.SendEmailConfirmation(usuario);
+                    
                     _context.Usuarios.Add(usuario);
                     await _context.SaveChangesAsync();
                     return RedirectToAction("Index", "Home");
@@ -36,6 +40,8 @@ namespace GHV.Controllers
                     return View(); 
                 }
             }
+            
+
             return View(usuario); // Retornar la vista con el modelo de usuario si el modelo no es válido
         }
         
