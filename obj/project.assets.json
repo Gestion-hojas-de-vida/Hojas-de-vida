@@ -3737,11 +3737,14 @@
     ]
   },
   "packageFolders": {
+
     "/home/riwip4-037/.nuget/packages/": {}
+
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+
       "projectUniqueName": "/home/riwip4-037/Desktop/Hojas-de-vida/GHV.csproj",
       "projectName": "GHV",
       "projectPath": "/home/riwip4-037/Desktop/Hojas-de-vida/GHV.csproj",
@@ -3750,6 +3753,7 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/riwip4-037/.nuget/NuGet/NuGet.Config"
+
       ],
       "originalTargetFrameworks": [
         "net8.0"

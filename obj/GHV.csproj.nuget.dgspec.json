@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+
     "/home/riwip4-037/Desktop/Hojas-de-vida/GHV.csproj": {}
   },
   "projects": {
@@ -15,6 +16,7 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/riwip4-037/.nuget/NuGet/NuGet.Config"
+
         ],
         "originalTargetFrameworks": [
           "net8.0"
