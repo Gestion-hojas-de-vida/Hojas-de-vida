@@ -33,14 +33,13 @@ namespace GHV.Controllers
             var LoginUser =_context.Usuarios.FirstOrDefault(u => u.Email == email && u.Contrasena == contrasena);
             if (LoginUser != null)
             {   
-                Console.WriteLine("Iniciaste Sesion");
                 ViewBag.Nombre=LoginUser.Nombre;
                 ViewBag.SuccessMessages = "Inicio de sesión exitoso";
                 return View("Login", "Login");
 
             }
             else
-            {   Console.WriteLine("Credenciales incorrectas");
+            {   
                 ViewBag.ErrorMessages = "Credenciales incorrectas";
                 return View();
             }

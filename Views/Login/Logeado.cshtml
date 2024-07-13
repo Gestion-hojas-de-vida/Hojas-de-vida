@@ -3,21 +3,132 @@
     ViewData["Title"] = "Logeado";
 }
 
-
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información Personal</title>
+    <link rel="stylesheet" href="~/css/estiloslogeado.css">
+    <link rel="stylesheet" href="~/css/stylelogeado.css" asp-append-version="true" />
 </head>
-
-
-<body class="login" >
-    <nav class="navbar">
-    </nav>
-    <div class="main-container">
-        <div class="form-container">
-                <p class="title">Hola, @ViewBag.Nombre</p>
-            <div class="alert alert-success ">
-                @ViewBag.SuccessMessages
+<body>
+    <div class="container">
+        <h2>Datos Personales</h2>
+        <form asp-action="GuardarInformacionPersonal" method="post">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="TipoDocumento">*Tipo de documento</label>
+                    <select class="form-control" id="TipoDocumento" name="TipoDocumento" required>
+                        <option value="Cedula">Cédula de Ciudadanía</option>
+                        <option value="Pasaporte">Pasaporte</option>
+                        <option value="Licencia">Licencia de Conducir</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="NumeroDocumento">*Número de documento</label>
+                    <input type="text" class="form-control" id="NumeroDocumento" name="NumeroDocumento" required>
+                </div>
             </div>
-        </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="PrimerNombre">*Primer nombre</label>
+                    <input type="text" class="form-control" id="PrimerNombre" name="PrimerNombre" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="SegundoNombre">Segundo nombre</label>
+                    <input type="text" class="form-control" id="SegundoNombre" name="SegundoNombre">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="PrimerApellido">*Primer apellido</label>
+                    <input type="text" class="form-control" id="PrimerApellido" name="PrimerApellido" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="SegundoApellido">*Segundo apellido</label>
+                    <input type="text" class="form-control" id="SegundoApellido" name="SegundoApellido" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="FechaNacimiento">*Fecha de nacimiento</label>
+                    <input type="date" class="form-control" id="FechaNacimiento" name="FechaNacimiento" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="Telefono">Teléfono</label>
+                    <input type="tel" class="form-control" id="Telefono" name="Telefono">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="Direccion">Dirección</label>
+                    <input type="text" class="form-control" id="Direccion" name="Direccion">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="EstadoCivil">Estado civil</label>
+                    <select class="form-control" id="EstadoCivil" name="EstadoCivil">
+                        <option value="Soltero(a)">Soltero(a)</option>
+                        <option value="Casado(a)">Casado(a)</option>
+                        <option value="Divorciado(a)">Divorciado(a)</option>
+                        <option value="Viudo(a)">Viudo(a)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="PaisNacimiento">País de nacimiento</label>
+                    <select class="form-control" id="PaisNacimiento" name="PaisNacimiento">
+                        <option value="Colombia">Colombia</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="DepartamentoNacimiento">Departamento de nacimiento</label>
+                    <select class="form-control" id="DepartamentoNacimiento" name="DepartamentoNacimiento">
+                        <option value="Amazonas">Amazonas</option>
+                        <option value="Antioquia">Antioquia</option>
+                        <option value="Arauca">Arauca</option>
+                        <option value="Atlántico">Atlántico</option>
+                        <option value="Bolívar">Bolívar</option>
+                        <option value="Boyacá">Boyacá</option>
+                        <option value="Caldas">Caldas</option>
+                        <option value="Caquetá">Caquetá</option>
+                        <option value="Casanare">Casanare</option>
+                        <option value="Cauca">Cauca</option>
+                        <option value="Cesar">Cesar</option>
+                        <option value="Chocó">Chocó</option>
+                        <option value="Córdoba">Córdoba</option>
+                        <option value="Cundinamarca">Cundinamarca</option>
+                        <option value="Guainía">Guainía</option>
+                        <option value="Guaviare">Guaviare</option>
+                        <option value="Huila">Huila</option>
+                        <option value="La Guajira">La Guajira</option>
+                        <option value="Magdalena">Magdalena</option>
+                        <option value="Meta">Meta</option>
+                        <option value="Nariño">Nariño</option>
+                        <option value="Norte de Santander">Norte de Santander</option>
+                        <option value="Putumayo">Putumayo</option>
+                        <option value="Quindío">Quindío</option>
+                        <option value="Risaralda">Risaralda</option>
+                        <option value="San Andrés y Providencia">San Andrés y Providencia</option>
+                        <option value="Santander">Santander</option>
+                        <option value="Sucre">Sucre</option>
+                        <option value="Tolima">Tolima</option>
+                        <option value="Valle del Cauca">Valle del Cauca</option>
+                        <option value="Vaupés">Vaupés</option>
+                        <option value="Vichada">Vichada</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
     </div>
 </body>
+</html>
+
