@@ -29,8 +29,8 @@ builder.Services.AddAuthentication(options =>
 .AddCookie()
 .AddGoogle(GoogleDefaults.AuthenticationScheme, options => 
 {
-    options.ClientId = googleClientId;  
-    options.ClientSecret = googleClientSecret;  
+    options.ClientId = googleClientId!;  
+    options.ClientSecret = googleClientSecret!;  
 });
 
 var app = builder.Build();
