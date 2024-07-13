@@ -1,4 +1,6 @@
 using GHV.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,19 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<BaseContext> (options => options.UseMySql(
     builder.Configuration.GetConnectionString("MySqlConnection"),
     Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.20-mysql")));
+
+builder.Services.AddAuthentication(options => 
+{
+    options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
+})
+.AddCookie()
+.AddGoogle(GoogleDefaults.AuthenticationScheme, options => 
+{
+    options.ClientId = "720930356197-qq25kkmiiciro2iuhsffg2892u251lr9.apps.googleusercontent.com";
+    options.ClientSecret = "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";
+});
 
 var app = builder.Build();
 
@@ -25,6 +40,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
