@@ -1,9 +1,17 @@
+using DotNetEnv;
 using GHV.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Cargar las variables de entorno desde el archivo .env
+Env.Load();
+
+// Obtener los valores de las variables de entorno
+var googleClientId = Environment.GetEnvironmentVariable("GOOGLE_OAUTH_CLIENT_ID");
+var googleClientSecret = Environment.GetEnvironmentVariable("GOOGLE_OAUTH_CLIENT_SECRET");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -21,8 +29,8 @@ builder.Services.AddAuthentication(options =>
 .AddCookie()
 .AddGoogle(GoogleDefaults.AuthenticationScheme, options => 
 {
-    options.ClientId = "720930356197-qq25kkmiiciro2iuhsffg2892u251lr9.apps.googleusercontent.com";
-    options.ClientSecret = "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";
+    options.ClientId = googleClientId;  // Usar la variable de entorno
+    options.ClientSecret = googleClientSecret;  // Usar la variable de entorno
 });
 
 var app = builder.Build();
