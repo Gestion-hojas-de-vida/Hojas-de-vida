@@ -35,7 +35,7 @@ namespace GHV.Controllers
             {   
                 ViewBag.Nombre=LoginUser.Nombre;
                 ViewBag.SuccessMessages = "Inicio de sesión exitoso";
-                return View("Login", "Login");
+                return View("Logeado", "Login");
 
             }
             else

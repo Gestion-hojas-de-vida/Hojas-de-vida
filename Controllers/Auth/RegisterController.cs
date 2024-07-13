@@ -31,7 +31,7 @@ namespace GHV.Controllers
                     
                     _context.Usuarios.Add(usuario);
                     await _context.SaveChangesAsync();
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Login", "Login");
                 }
                 catch (Exception)
                 {

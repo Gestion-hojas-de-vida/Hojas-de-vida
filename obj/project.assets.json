@@ -3737,20 +3737,19 @@
     ]
   },
   "packageFolders": {
-    "/home/riwip4-037/.nuget/packages/": {}
+    "/home/riwip4-042/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/riwip4-037/Desktop/Hojas-de-vida/GHV.csproj",
+      "projectUniqueName": "/home/riwip4-042/Desktop/ensayo/Hojas-de-vida/GHV.csproj",
       "projectName": "GHV",
-      "projectPath": "/home/riwip4-037/Desktop/Hojas-de-vida/GHV.csproj",
-      "packagesPath": "/home/riwip4-037/.nuget/packages/",
-      "outputPath": "/home/riwip4-037/Desktop/Hojas-de-vida/obj/",
-
+      "projectPath": "/home/riwip4-042/Desktop/ensayo/Hojas-de-vida/GHV.csproj",
+      "packagesPath": "/home/riwip4-042/.nuget/packages/",
+      "outputPath": "/home/riwip4-042/Desktop/ensayo/Hojas-de-vida/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/riwip4-037/.nuget/NuGet/NuGet.Config"
+        "/home/riwip4-042/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -3815,7 +3814,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/home/riwip4-037/.dotnet/sdk/8.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/home/riwip4-042/.dotnet/sdk/8.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
