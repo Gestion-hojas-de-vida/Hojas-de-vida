@@ -37,26 +37,22 @@ namespace GHV.Controllers
             {
                 ViewData["Mensaje"] = "Por favor ingrese un correo electrónico válido.";
             }
-          
+            ViewBag.Email =  email;
             var usuario = await  _context.Usuarios.FirstOrDefaultAsync(u => u.Email == email);
 
-
+            
             if (usuario == null)
             {
-                
+               
                 ViewData["Mensaje"] = $"No se encontró ningún usuario registrado con el correo electrónico {email}.";
-
+               
             }
-            /*HttpContext.Session.SetString("Names", usuario.Nombre);*/
-            // Aquí deberías implementar la lógica para enviar el correo de recuperación
-            // Simulamos enviando un mensaje de éxito
-            ViewData["Mensaje"] = $"Se ha enviado un correo de recuperación a {email}";
 
             MailController Email = new MailController();
-            Email.EnviarCorreo(usuario);
+            await Email.EnviarCorreo(usuario);
+            return RedirectToAction("Login", "Login");
 
-            return View("Index");
-
+             
 
         }
     }
