@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "W4IzPm70lgQBNySDQPxKj8AOOEj5xS+a/nS4m8gIyN4jcuUhDnmBZFhK+jxVIQiC5A8lOYr31IK/ecWV+B1ZDw==",
+  "dgSpecHash": "Ce6qGMFNwcO6NpEwQlp4liWU1W1P63s9SEtqdSJU+VfaolZ4Bok+VP/JKbK64OmKrOQct+Rzqy6Nd9ZZx/frHA==",
   "success": true,
-  "projectFilePath": "/home/riwip4-039/Documents/clone/Hojas-de-vida/GHV.csproj",
+  "projectFilePath": "/home/riwip4-039/Desktop/Hojas-de-vida/GHV.csproj",
   "expectedPackageFiles": [
     "/home/riwip4-039/.nuget/packages/microsoft.entityframeworkcore/8.0.7/microsoft.entityframeworkcore.8.0.7.nupkg.sha512",
     "/home/riwip4-039/.nuget/packages/microsoft.entityframeworkcore.abstractions/8.0.7/microsoft.entityframeworkcore.abstractions.8.0.7.nupkg.sha512",
