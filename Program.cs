@@ -10,8 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 Env.Load();
 
 // Obtener los valores de las variables de entorno
-var googleClientId = Environment.GetEnvironmentVariable("720930356197-qq25kkmiiciro2iuhsffg2892u251lr9.apps.googleusercontent.com");
-var googleClientSecret = Environment.GetEnvironmentVariable("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");
+var googleClientId = "720930356197-qq25kkmiiciro2iuhsffg2892u251lr9.apps.googleusercontent.com";
+var googleClientSecret = "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";
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
