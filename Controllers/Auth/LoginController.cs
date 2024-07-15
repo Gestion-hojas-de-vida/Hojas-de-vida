@@ -1,10 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc;
+using System.Text;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 using GHV.Data;
 using GHV.Models;
 
@@ -13,10 +15,18 @@ namespace GHV.Controllers
     [Route("[controller]")]
     public class LoginController : Controller
     {
+        private readonly string Key;
+        private readonly string Issuer;
+        private readonly string Audience;
+        private readonly IConfiguration _configuration;
         private readonly BaseContext _context;
-        public LoginController(BaseContext context)
+
+        public LoginController(IConfiguration configuration,BaseContext context)
         {
             _context = context;
+            Key = configuration["Jwt:Key"];
+            Issuer = configuration["Jwt:Issuer"];
+            Audience = configuration["Jwt:Audience"];
         }
         /*Direccionamiento a la vita de Login*/
         [HttpGet]
@@ -47,14 +57,21 @@ namespace GHV.Controllers
                 /* aqui validamos si es nombre de l rol es admin o user */
                 if (roles.Any(r => r.Nombre == "Admin"))
                 {
+                    
+                    var token = GenerateJwtToken(LoginUser.Email);
+                    Console.WriteLine("token" + token);
+                    ViewBag.Nombre=LoginUser.Nombre;
+                    ViewBag.SuccessMessages = "Inicio de sesión exitoso" + LoginUser.Nombre;
                     return RedirectToAction("Administrador", "Admin");
                 }
                 else if (roles.Any(r => r.Nombre == "User"))
                 {
-                      
-                ViewBag.Nombre=LoginUser.Nombre;
-                ViewBag.SuccessMessages = "Inicio de sesión exitoso";
-                return View("Logeado", "Login");
+                    var token = GenerateJwtToken(LoginUser.Email);
+                    
+                    Console.WriteLine("token" + token);
+                    ViewBag.Nombre=LoginUser.Nombre;
+                    ViewBag.SuccessMessages = "Inicio de sesión exitoso" + LoginUser.Nombre;
+                    return View("Logeado", "Login");
                 }
                 else
                 {
@@ -67,7 +84,32 @@ namespace GHV.Controllers
                 ViewBag.ErrorMessages = "Credenciales incorrectas";
                 return View();
             }
+            /*--------------------------------------------------------------------------------------------------------------*/
+
+            
         }
-        /*--------------------------------------------------------------------------------------------------------------*/
+
+        /*generacion de token*/
+         public string GenerateJwtToken(string username)
+            {
+            
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Key));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var claims = new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, username),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
+
+            var token = new JwtSecurityToken(
+                issuer: Issuer,
+                audience: Audience,
+                claims: claims,
+                expires: DateTime.UtcNow.AddHours(1),
+                signingCredentials: credentials);
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+            }
     }
 }
