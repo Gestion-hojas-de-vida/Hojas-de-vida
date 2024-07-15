@@ -21,3 +21,8 @@ Para cargar los iconos usados en el proyecto deberas instalar la libreria corres
 Instalar Material Design Icons:
 npm install @mdi/font
 
+terminadores de línea automáticamente:
+LF (Line Feed): Es un terminador de línea usado en sistemas Unix y Linux.
+CRLF (Carriage Return + Line Feed): Es un terminador de línea usado en sistemas Windows.
+Configuración Global: Puedes configurar Git para manejar los terminadores de línea automáticamente al hacer commit o al chequear los archivos. Usa el siguiente comando para configurar Git para convertir CRLF a LF en todos los archivos cuando hagas commit, y para convertir LF a CRLF cuando hagas checkout en Windows:
+git config --global core.autocrlf true
