@@ -2,6 +2,9 @@ using System.Text;
 using System.Text.Json;
 using GHV.Models;
 using Microsoft.AspNetCore.Mvc;
+using MailKit.Net.Smtp;
+using MimeKit;
+using GHV.Models;
 
 namespace GHV.Controllers
 {
@@ -9,64 +12,45 @@ namespace GHV.Controllers
     public class MailController : Controller
     {
         [HttpPost]
-        public async Task EnviarCorreo(Usuario usuario)
+        public void SendConfirmationEmail(Usuario usuario)
         {
-            try
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("Recover-Password", "pruebariwi@gmail.com"));
+            message.To.Add(new MailboxAddress("", usuario.Email));
+            message.Subject = "Recover-Password";
+            message.Body = new TextPart("plain")
             {
-                // URL de destino para la solicitud POST
-                string url = "https://api.mailersend.com/v1/email";
+                Text = $"Hola {usuario.Nombre} tu contraseña es: {usuario.Contrasena}"
+            };
 
-                // Token de autorización para la solicitud POST
-                string jwtToken = "mlsn.acea80f5ee4bbb9bdaf914ae19a1b9b9cc84097da4529a01d17816d52608e4a4";
-
-                // Crear el mensaje de correo electrónico utilizando datos del usuario
-                var emailMessage = new
+            using (var client = new SmtpClient())
+            {
+                try
                 {
-                    from = new { email = "RecoverPassword@trial-v69oxl59emkg785k.mlsender.net" },
-                    to = new[]
-                    {
-                        new { email = usuario.Email}
-                    },
-                    subject = "Recover Password",
-                    text = $"Hola {usuario.Nombre}, Tu contraseña es {usuario.Contrasena}!",
-                    
-                };
-
-                // Serializar el objeto EmailMessage en formato JSON
-                string jsonBody = JsonSerializer.Serialize(emailMessage);
-
-                // Crear un objeto HttpClient para realizar la solicitud HTTP
-                using (HttpClient client = new HttpClient())
-                {
-                    // Configurar el encabezado Content-Type para indicar que el cuerpo es JSON
-                    client.DefaultRequestHeaders.Add("ContentType", "Application/Json");
-                    // Configurar el encabezado Authorization para indicar el token de autorización
-                    client.DefaultRequestHeaders.Add("Authorization", $"Bearer {jwtToken}");
-
-                    // Crear el contenido de la solicitud POST como StringContent
-                    StringContent content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
-
-                    // Realizar la solicitud POST a la URL especificada
-                    HttpResponseMessage response = await client.PostAsync(url, content);
-
-                    // Verificar si la solicitud fue exitosa (código de estado 200-299)
-                    if (response.IsSuccessStatusCode)
-                    {
-                        // Leer la respuesta como una cadena
-                        string responseBody = await response.Content.ReadAsStringAsync();
-                        Console.WriteLine("Correo electrónico enviado correctamente:");
-                        Console.WriteLine(responseBody);
-                    }
-                    else
-                    {
-                        // Si la solicitud no fue exitosa, mostrar el código de estado
-                        Console.WriteLine($"La solicitud falló con el código de estado: {response.StatusCode}");
-                    }
+                    Console.WriteLine($"entro aqui");
+                    client.Connect("smtp.gmail.com", 587, false);
+                    client.Authenticate("pruebariwi@gmail.com", "cijm vdzz fmza opwu"); // Usa la contraseña de la aplicación aquí
+                    client.Send(message);
                 }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"Error al enviar correo electrónico: {e.Message}");
+                catch (SmtpCommandException ex)
+                {
+                    Console.WriteLine($"Error SMTP: {ex.StatusCode}");
+                    throw;
+                }
+                catch (SmtpProtocolException ex)
+                {
+                    Console.WriteLine($"Error de protocolo SMTP: {ex.Message}");
+                    throw;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error al enviar el correo electrónico: {ex.Message}");
+                    throw;
+                }
+                finally
+                {
+                    client.Disconnect(true);
+                }
             }
         }
 

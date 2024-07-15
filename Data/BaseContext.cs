@@ -9,10 +9,11 @@ namespace GHV.Data
 {
     public class BaseContext : DbContext
     {
+        /*Constructor del controlador*/
         public BaseContext(DbContextOptions<BaseContext> options) : base(options){
 
         }
-
+        /*entidades o tablas */
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Rol> Roles { get; set; }
         public DbSet<Permiso> Permisos { get; set; }
