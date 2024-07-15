@@ -1,52 +1,78 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - GHV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/GHV.styles.css" asp-append-version="true" />
+    <!--Material Icon -->
+    <link rel="stylesheet" type="text/css" href="mdi/css/materialdesignicons.min.css" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/assets/favicon-32x32.png" type="image/png">
+    <!-- Archivo css -->
+    <link rel="stylesheet" href="~/css/styleIndex.css" asp-append-version="true" />
+    <!-- Fuentes Google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,900" />
 </head>
-<body>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="78">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <!--Navbar Start-->
+        <nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky-dark" id="sticky">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">GHV</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <!-- LOGO -->
+                <a class="logo text-uppercase" asp-controller="Home" asp-action="Index" class="nav-link">
+                    <img src="/assets/logo-512x512.webp" alt="" class="logo-light" height="40">
+                    <img src="/assets/logo-512x512.webp" alt="" class="logo-dark" height="40" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="mdi mdi-menu"></i>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mx-auto navbar-center" id="mySidenav">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                            <a asp-controller="Home" asp-action="Index" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Register" asp-action="register">Registrate</a>
+                            <a href="#clients" class="nav-link">Sobre Nosotros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Login">Inicio Sesion</a>
+                            <a href="#pricing" class="nav-link">Aliados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#faq" class="nav-link">Preguntas Frecuentes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link">Contacto</a>
                         </li>
                     </ul>
+                    <a class="btn btn-outline-warning navbar-btn" asp-controller="Register" asp-action="Register">Registrarse</a>
+                    <a class="btn btn-outline-warning navbar-btn mx-2" asp-controller="Login" asp-action="Login">Iniciar Sesión</a>
                 </div>
             </div>
         </nav>
+        <!-- Navbar End -->
     </header>
-    <div class="container" style="margin-top: 70px;"> <!-- Ajusta el margen superior para evitar superposición con el navbar fijo -->
+
+    <div>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - GHV - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <!-- custom js -->
+        <script src="js/app.js"></script>
 </body>
+
 </html>

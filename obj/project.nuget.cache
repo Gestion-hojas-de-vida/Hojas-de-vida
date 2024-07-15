@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jIY0OxVey6yVJF5J6fOKljf5EWda1/piZNt9c9126iUzIGxxrL8lUwsWGovVF69SP7cGF8IocEz2q5V4L5koag==",
+  "dgSpecHash": "lXt1V49E2qPioJmim3Uivk05KUIZ/9NhJjGg22XLXXU2jm942Ek9MGdaBP4rnUgSBaEqXEvCQafXby98/Fni6A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\ensayo\\Hojas-de-vida\\GHV.csproj",
+  "projectFilePath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\Hojas-de-vida\\GHV.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\dotnetenv\\3.0.0\\dotnetenv.3.0.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\8.0.7\\microsoft.aspnetcore.authentication.google.8.0.7.nupkg.sha512",
