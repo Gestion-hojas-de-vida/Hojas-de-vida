@@ -16,3 +16,8 @@ Se manejaran task-# dentro de la rama develop, cada task corresponde a una incid
 
 Tablero de Jira:
 https://mini-drive.atlassian.net/jira/software/projects/GHDV/boards/2?atlOrigin=eyJpIjoiYmUzNGE3YzE3ODExNDg5YzhlNWJjNzY0YjI5MmQ5Y2IiLCJwIjoiaiJ9
+
+Para cargar los iconos usados en el proyecto deberas instalar la libreria correspondiente.
+Instalar Material Design Icons:
+npm install @mdi/font
+

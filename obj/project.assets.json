@@ -5721,11 +5721,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\ensayo\\Hojas-de-vida\\GHV.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\Hojas-de-vida\\GHV.csproj",
       "projectName": "GHV",
-      "projectPath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\ensayo\\Hojas-de-vida\\GHV.csproj",
+      "projectPath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\Hojas-de-vida\\GHV.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\ensayo\\Hojas-de-vida\\obj\\",
+      "outputPath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\Hojas-de-vida\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
