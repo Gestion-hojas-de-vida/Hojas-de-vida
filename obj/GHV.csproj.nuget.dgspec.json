@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ELIANIS\\Desktop\\Hojas-de-vida\\GHV.csproj": {}
+    "/home/riwip5-038/App/Hojas-de-vida/GHV.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ELIANIS\\Desktop\\Hojas-de-vida\\GHV.csproj": {
+    "/home/riwip5-038/App/Hojas-de-vida/GHV.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ELIANIS\\Desktop\\Hojas-de-vida\\GHV.csproj",
+        "projectUniqueName": "/home/riwip5-038/App/Hojas-de-vida/GHV.csproj",
         "projectName": "GHV",
-        "projectPath": "C:\\Users\\ELIANIS\\Desktop\\Hojas-de-vida\\GHV.csproj",
-        "packagesPath": "C:\\Users\\ELIANIS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ELIANIS\\Desktop\\Hojas-de-vida\\obj\\",
+        "projectPath": "/home/riwip5-038/App/Hojas-de-vida/GHV.csproj",
+        "packagesPath": "/home/riwip5-038/.nuget/packages/",
+        "outputPath": "/home/riwip5-038/App/Hojas-de-vida/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ELIANIS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/riwip5-038/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,11 +32,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -91,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.107/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
