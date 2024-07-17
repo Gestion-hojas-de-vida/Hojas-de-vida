@@ -14,5 +14,10 @@ namespace GHV.Data
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Permiso> Permisos { get; set; }
+        public DbSet<PermisoDeModelo> PermisosDeModelos { get; set; }
+        public DbSet<PermisoDeRol> PermisosDeRoles { get; set; }
+        public DbSet<Rol> Roles { get; set; }
+        public DbSet<RolDeModelo> RolesDeModelos { get; set; }
     }
 }
