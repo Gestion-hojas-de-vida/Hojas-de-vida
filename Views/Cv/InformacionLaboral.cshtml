@@ -1,0 +1,51 @@
+@{
+    Layout = "/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información Laboral</title>
+    <link rel="stylesheet" href="~/css/estiloslogeado.css">
+    <link rel="stylesheet" href="~/css/stylelogeado.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <h2>Información Laboral</h2>
+        <form asp-action="GuardarInformacionLaboral" method="post">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="Empresa">*Empresa</label>
+                    <input type="text" class="form-control" id="Empresa" name="Empresa" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="Puesto">*Puesto</label>
+                    <input type="text" class="form-control" id="Puesto" name="Puesto" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="FechaInicio">*Fecha de Inicio</label>
+                    <input type="date" class="form-control" id="FechaInicio" name="FechaInicio" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="FechaFin">*Fecha de Fin</label>
+                    <input type="date" class="form-control" id="FechaFin" name="FechaFin" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="Descripcion">Descripción</label>
+                    <textarea class="form-control" id="Descripcion" name="Descripcion" rows="4"></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,6 +1,7 @@
+@model GHV.Models.InformacionPersonal
 
 @{
-    ViewData["Title"] = "Logeado";
+    Layout = "/Views/Shared/_LayoutDashboard.cshtml";
 }
 
 <!DOCTYPE html>
@@ -15,7 +16,7 @@
 <body>
     <div class="container">
         <h2>Datos Personales</h2>
-        <form asp-action="GuardarInformacionPersonal" method="post">
+        <form asp-action="GuardarInformacionPersonal" asp-controller="InformacionPersonal" method="post">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="TipoDocumento">*Tipo de documento</label>
@@ -30,7 +31,6 @@
                     <input type="text" class="form-control" id="NumeroDocumento" name="NumeroDocumento" required>
                 </div>
             </div>
-
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="PrimerNombre">*Primer nombre</label>
@@ -41,7 +41,6 @@
                     <input type="text" class="form-control" id="SegundoNombre" name="SegundoNombre">
                 </div>
             </div>
-
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="PrimerApellido">*Primer apellido</label>
@@ -52,7 +51,6 @@
                     <input type="text" class="form-control" id="SegundoApellido" name="SegundoApellido" required>
                 </div>
             </div>
-
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="FechaNacimiento">*Fecha de nacimiento</label>
@@ -63,7 +61,6 @@
                     <input type="tel" class="form-control" id="Telefono" name="Telefono">
                 </div>
             </div>
-
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="Direccion">Dirección</label>
@@ -72,19 +69,19 @@
                 <div class="form-group col-md-6">
                     <label for="EstadoCivil">Estado civil</label>
                     <select class="form-control" id="EstadoCivil" name="EstadoCivil">
-                        <option value="Soltero(a)">Soltero(a)</option>
-                        <option value="Casado(a)">Casado(a)</option>
-                        <option value="Divorciado(a)">Divorciado(a)</option>
-                        <option value="Viudo(a)">Viudo(a)</option>
+                        <option value="Soltero">Soltero(a)</option>
+                        <option value="Casado">Casado(a)</option>
+                        <option value="Divorciado">Divorciado(a)</option>
+                        <option value="Viudo">Viudo(a)</option>
                     </select>
                 </div>
             </div>
-
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="PaisNacimiento">País de nacimiento</label>
                     <select class="form-control" id="PaisNacimiento" name="PaisNacimiento">
                         <option value="Colombia">Colombia</option>
+                        <!-- Agrega más países si es necesario -->
                     </select>
                 </div>
                 <div class="form-group col-md-6">
@@ -107,19 +104,19 @@
                         <option value="Guainía">Guainía</option>
                         <option value="Guaviare">Guaviare</option>
                         <option value="Huila">Huila</option>
-                        <option value="La Guajira">La Guajira</option>
+                        <option value="LaGuajira">La Guajira</option>
                         <option value="Magdalena">Magdalena</option>
                         <option value="Meta">Meta</option>
                         <option value="Nariño">Nariño</option>
-                        <option value="Norte de Santander">Norte de Santander</option>
+                        <option value="NortedeSantander">Norte de Santander</option>
                         <option value="Putumayo">Putumayo</option>
                         <option value="Quindío">Quindío</option>
                         <option value="Risaralda">Risaralda</option>
-                        <option value="San Andrés y Providencia">San Andrés y Providencia</option>
+                        <option value="SanAndrésyProvidencia">San Andrés y Providencia</option>
                         <option value="Santander">Santander</option>
                         <option value="Sucre">Sucre</option>
                         <option value="Tolima">Tolima</option>
-                        <option value="Valle del Cauca">Valle del Cauca</option>
+                        <option value="ValledelCauca">Valle del Cauca</option>
                         <option value="Vaupés">Vaupés</option>
                         <option value="Vichada">Vichada</option>
                     </select>
@@ -131,4 +128,3 @@
     </div>
 </body>
 </html>
-

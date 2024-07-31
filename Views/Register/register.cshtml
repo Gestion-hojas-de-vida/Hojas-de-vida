@@ -1,5 +1,5 @@
 @{
-	Layout = "_Layout";
+	Layout = "_LayoutLimpio";
 }
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>@ViewData["Title"] - Registrarse</title>
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="~/css/styleregister.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/styleRegister.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/GHV.styles.css" asp-append-version="true" />
 </head>
 
@@ -64,6 +64,9 @@
 					</svg>
 					<span>Sign up with Google</span>
 				</a>
+			</div>
+			<div  class="btn btn-success mt-4 d-grid">
+				<a asp-controller="Home" asp-action="Index" id="boton">Ir al inicio</a>
 			</div>
 		</div>
 	</div>

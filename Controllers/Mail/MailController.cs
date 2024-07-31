@@ -1,5 +1,4 @@
-using System.Text;
-using System.Text.Json;
+
 using GHV.Models;
 using Microsoft.AspNetCore.Mvc;
 using MailKit.Net.Smtp;
@@ -26,7 +25,7 @@ namespace GHV.Controllers
             {
                 try
                 {
-                    Console.WriteLine($"entro aqui");
+
                     client.Connect("smtp.gmail.com", 587, false);
                     client.Authenticate("pruebariwi@gmail.com", "cijm vdzz fmza opwu"); // Usa la contraseña de la aplicación aquí
                     client.Send(message);
