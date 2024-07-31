@@ -33,22 +33,44 @@ namespace GHV.Controllers
         /*Verificacion de credenciales para Login*/
         [HttpPost]
         public IActionResult Login(string email, string contrasena)
-        {   
-            Console.WriteLine("Empieza");
-            var LoginUser =_context.Usuarios.FirstOrDefault(u => u.Email == email && u.Contrasena == contrasena);
-            if (LoginUser != null)
-            {   
-                ViewBag.Nombre=LoginUser.Nombre;
-                ViewBag.SuccessMessages = "Inicio de sesión exitoso";
-                return View("Logeado", "Login");
+        {
+            var LoginUser = _context.Usuarios.FirstOrDefault(u => u.Email == email && u.Contrasena == contrasena);
 
+            if (LoginUser != null)
+            {
+                // Obtener los roles asociados al usuario
+                var roles = _context.RolesDeModelos
+                    .Where(mr => mr.ModeloId == LoginUser.Id)
+                    .Join(_context.Roles,
+                        mr => mr.RolId,
+                        r => r.Id,
+                        (mr, r) => r)
+                    .Select(r => r.Nombre)
+                    .ToList();
+
+                ViewBag.NombreUsuario = LoginUser.Nombre;
+
+                // Validar el rol del usuario
+                if (roles.Contains("Admin"))
+                {
+                    ViewBag.Nombre = LoginUser.Nombre;
+                    return RedirectToAction("Administrador", "Admin");
+                }
+                else
+                {
+                    // Redirigir a una página predeterminada si no hay rol asignado
+                    ViewBag.Nombre = LoginUser.Nombre;
+                    ViewBag.SuccessMessages = "Inicio de sesión exitoso, bienvenido " + LoginUser.Nombre;
+                    return RedirectToAction("Usuario", "User");
+                }
             }
             else
-            {   
+            {
                 ViewBag.ErrorMessages = "Credenciales incorrectas";
                 return View();
             }
         }
+
         /*--------------------------------------------------------------------------------------------------------------*/
         /*Autenticacion con google*/
         [HttpGet("GoogleLogin")]
@@ -134,16 +156,20 @@ namespace GHV.Controllers
                 claimsIdentity.AddClaim(new Claim(ClaimTypes.Name, user.Nombre!));
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
-            }
 
-            return View("Logeado", "Login");
+                // Guardar el nombre del usuario en ViewBag
+                ViewBag.NombreUsuario = user.Nombre; // Guardar el nombre del usuario en ViewBag
+                
+            }
+            Console.WriteLine(ViewBag.NombreUsuario);
+            return RedirectToAction("Usuario", "User");
         }
 
         [HttpPost("Logout")]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Login", "Login");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

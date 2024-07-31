@@ -19,5 +19,17 @@ namespace GHV.Data
         public DbSet<PermisoDeRol> PermisosDeRoles { get; set; }
         public DbSet<Rol> Roles { get; set; }
         public DbSet<RolDeModelo> RolesDeModelos { get; set; }
+        public DbSet<InformacionPersonal> InformacionesPersonales { get; set; }
+
+        /*aqui se configuran los modelos y con "HasNoKey" quiere decir que las entidad no tiene llave peimaria*/
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<PermisoDeModelo>().HasNoKey();
+            modelBuilder.Entity<RolDeModelo>()
+            .HasKey(r => new { r.RolId, r.ModeloId });
+            modelBuilder.Entity<PermisoDeRol>().HasNoKey();
+            // Otras configuraciones de modelos aquí
+        }
+
     }
 }

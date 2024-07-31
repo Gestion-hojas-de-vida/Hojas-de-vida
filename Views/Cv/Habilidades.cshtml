@@ -1,0 +1,33 @@
+@{
+    Layout = "/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habilidades</title>
+    <link rel="stylesheet" href="~/css/estiloslogeado.css">
+    <link rel="stylesheet" href="~/css/stylelogeado.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <h2>Habilidades</h2>
+        <form asp-action="GuardarHabilidades" method="post">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="Habilidad">*Habilidad</label>
+                    <input type="text" class="form-control" id="Habilidad" name="Habilidad" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="Nivel">*Nivel</label>
+                    <input type="text" class="form-control" id="Nivel" name="Nivel" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+</body>
+</html>
